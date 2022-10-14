@@ -15,8 +15,15 @@ Tác giả web site sẽ soạn các file Markdown trong một thư mục Hugo r
 
 Cứ mỗi lần push git, thì Github tạo ra một event hook thực chất là một HTTP request gọi đến một địa chỉ cấu hình. Nếu địa chỉ được GoHugo hứng thì GoHugo sẽ đọc nội dung của HTTP request do Github thực hiện, rồi thực hiện:
 
-- git pull <repo chứa Markdown>
-- 
+- git pull <repo chứa Markdown> về một thư mục
+- chạy lệnh hugo để render thư mục ra minified HTML
+
+Trước đó chúng ta đã cài đặt cấu hình nginx để phục vụ được nhiều web site tĩnh lưu ở các thư mục khác nhau.
+
+Như vậy trong hệ thống được đóng gói vào docker sẽ có mấy ứng dụng:
+1. hugo dùng để render thư mục chứa mã Markdown
+2. gohugo là một ứng dụng web để nhận web hook event từ github
+3. nginx web để shared hosting nhiều web site tĩnh
 
 
 ## File cấu hình config.yml
