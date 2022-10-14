@@ -1,0 +1,5 @@
+minify/
+sysdesign/
+*.log
+.DS_Store
+.vscode/
